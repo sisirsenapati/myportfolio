@@ -1,230 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sisir Senapati &ndash; Technical Project Manager</title>
+  <title>Sisir Senapati — Hybrid Executive Portfolio</title>
+  <meta name="description" content="Sisir Senapati | Technical Project Manager | Senior Scrum Master | Agile Coach | Delivery Leader. 18+ years leading Agile transformations, DevOps and SaaS delivery." />
   <style>
-    :root {
-      --accent: #205d9c;
-      --light-bg: #f8fafd;
-      --white: #fff;
-      --text: #232a33;
-      --soft-shadow: 0 2px 24px 0 rgba(31,61,82,0.08);
+    :root{
+      --navy:#0b2340;
+      --accent:#2b6ea5;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f6f8fb;
+      --glass: rgba(255,255,255,0.85);
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--light-bg);
-      color: var(--text);
-      min-height: 100vh;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#f6f8fb 0%, #eef3f9 100%);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
-    .main-wrap {
-      max-width: 700px;
-      background: var(--white);
-      margin: 48px auto 32px auto;
-      border-radius: 14px;
-      box-shadow: var(--soft-shadow);
-      padding: 38px 32px 30px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .container{max-width:var(--maxw);margin:32px auto;padding:20px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .brand{display:flex;align-items:center;gap:12px;}
+    .logo{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--navy));
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;
+      box-shadow:0 6px 18px rgba(11,35,64,0.12);
     }
-    .profile-pic {
-      width: 135px;
-      height: 135px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid var(--white);
-      box-shadow: 0 8px 32px 0 rgba(32,93,156,0.09);
-      margin-top: -95px;
-      margin-bottom: 12px;
-      background: #e9eef3;
-    }
-    h1 {
-      font-size: 2.1em;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin: 14px 0 5px 0;
-      color: var(--accent);
-    }
-    .role {
-      font-size: 1.18em;
-      margin-bottom: 18px;
-      color: #445876;
-      font-weight: 500;
-      letter-spacing: 0.2px;
-    }
-    .contact-row {
-      margin-bottom: 7px;
-      font-size: 1em;
-      text-align: center;
-    }
-    .contact-row a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 1em;
-    }
-    .cta-btn {
-      display: inline-block;
-      padding: 9px 18px;
-      background: var(--accent);
-      color: var(--white);
-      border: none;
-      border-radius: 25px;
-      font-weight: 600;
-      margin: 10px 10px 0 0;
-      transition: background 0.15s;
-      text-decoration: none;
-      font-size: 1em;
-      box-shadow: 0 2px 12px 0 rgba(32,93,156,0.07);
-    }
-    .cta-btn:hover { background: #163e70; }
-    .section {
-      width: 100%;
-      margin-top: 30px;
-    }
-    .section-title {
-      color: var(--accent);
-      font-size: 1.18em;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .desc, .section-list, .section-table { 
-      font-size: 1.05em;
-      line-height: 1.62;
-      margin-top: 7px;
-    }
-    .section-list {
-      margin: 0 0 0 0;
-      padding-left: 21px;
-    }
-    .section-list li {
-      margin-bottom: 7px;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 13px;
-      margin-bottom: 2px;
-      padding-left:0;
-    }
-    .tag {
-      background: #e2ecfa;
-      color: #246;
-      padding: 4px 13px;
-      border-radius: 13px;
-      font-size: 0.97em;
-      font-weight: 500;
-    }
-    .section-table {
-      width:100%;
-      border-collapse:collapse;
-      margin-top:5px;
-      font-size: 1em;
-    }
-    .section-table th, .section-table td {
-      border: none;
-      padding: 8px 10px;
-    }
-    .section-table th {
-      background: var(--accent);
-      color: var(--white);
-      font-weight:500;
-      text-align:left;
-    }
-    .section-table tr:nth-child(even) {
-      background: #f6f8fa;
-    }
-    footer{
-      text-align:center;
-      color:#a7afb5;
-      font-size:0.97em;
-    }
-    @media(max-width:800px){
-      .main-wrap{padding:18px;}
-    }
-    @media(max-width:500px){
-      .main-wrap{padding:6px 2vw;}
+    nav a{margin-left:18px;color:var(--navy);text-decoration:none;font-weight:600;}
+    .hero{display:grid;grid-template-columns: 1fr 340px;gap:28px;align-items:center;margin-top:18px;}
+    .card{background:var(--glass);border-radius:14px;padding:20px;box-shadow:0 8px 30px rgba(11,35,64,0.06);}
+    .hero-left h1{margin:6px 0 6px;font-size:28px;color:var(--navy);}
+    .tagline{color:var(--muted);margin-bottom:12px;}
+    .usp{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--navy));color:#fff;padding:8px 12px;border-radius:999px;font-weight:600;margin-bottom:14px;}
+    .photo{width:320px;border-radius:12px;overflow:hidden;border:6px solid #fff;box-shadow:0 12px 30px rgba(11,35,64,0.10);}
+    .photo img{display:block;width:100%;height:auto;}
+    .bullet-list{margin:0;padding-left:18px;}
+    h2{color:var(--navy);margin-top:18px;margin-bottom:10px;font-size:18px;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+    .chip{background:#fff;padding:10px;border-radius:8px;border:1px solid #e6eef8;font-weight:600;font-size:14px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .project-card{background:#fff;padding:14px;border-radius:10px;border:1px solid #eef4fb}
+    .cta-row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+    .btn-primary{background:var(--navy);color:#fff}
+    .btn-ghost{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+    footer{margin-top:26px;padding:20px 0;color:var(--muted);font-size:14px;text-align:center}
+    .contact a{color:var(--navy);text-decoration:none;font-weight:700}
+    .meta{font-size:13px;color:var(--muted);margin-top:6px}
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;gap:14px}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .projects{grid-template-columns:1fr}
+      nav{display:none}
+      .logo{width:48px;height:48px}
     }
   </style>
 </head>
 <body>
-  <div class="main-wrap">
-    <img src="MyPhoto.png" alt="Sisir Senapati" class="profile-pic" />
-    <h1>Sisir Senapati</h1>
-    <div class="role">
-      Technical Project Manager &bull; Senior Scrum Master &bull; Agile Coach
-    </div>
-    <div class="contact-row">Bhubaneswar, India</div>
-    <div class="contact-row"><a href="mailto:sisir.senapati@gmail.com">sisir.senapati@gmail.com</a></div>
-    <div class="contact-row"><a href="https://linkedin.com/in/sisir-senapati" target="_blank">linkedin.com/in/sisir-senapati</a></div>
-    <div>
-      <a href="Sisir_Senapati_TPM_SSM_AC_DL.pdf" class="cta-btn" target="_blank">Download CV (PDF)</a>
-      <a href="MyPhoto.png" class="cta-btn" target="_blank">Photo</a>
-    </div>
-    <div class="section">
-      <div class="section-title">About</div>
-      <div class="desc">
-        Agile Project Manager, Agile Coach, and certified PMP &mdash; driving software delivery and leading Agile and DevOps adoption for 18+ years in top global organizations. Experienced in building high-performing cross-functional teams, optimizing delivery pipelines, and accelerating value creation for SaaS and digital products.
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SS</div>
+        <div>
+          <div style="font-weight:800;color:var(--navy)">Sisir Senapati</div>
+          <div style="font-size:13px;color:var(--muted)">Technical Project Manager • Senior Scrum Master • Agile Coach</div>
+        </div>
       </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Core Strengths</div>
-      <div class="tags">
-        <div class="tag">Agile Delivery & Coaching</div>
-        <div class="tag">Program/Project Management</div>
-        <div class="tag">DevOps & SDLC</div>
-        <div class="tag">Distributed Teams</div>
-        <div class="tag">Servant Leadership</div>
-        <div class="tag">Cloud (Azure)</div>
-        <div class="tag">AI/Automation</div>
-        <div class="tag">Stakeholder Management</div>
-        <div class="tag">Jira & Atlassian</div>
-        <div class="tag">CI/CD, Metrics</div>
-        <div class="tag">Scrum, Kanban, SAFe</div>
-        <div class="tag">Conflict Resolution</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="hero-left card">
+        <div class="usp">Transforming Teams & Delivery — Agile • AI • Leadership</div>
+        <h1>Driving Agile Excellence & Digital Transformation</h1>
+        <div class="tagline">I combine Agile leadership, technical delivery expertise, and a people-first coaching approach to transform how teams deliver value — driving innovation, collaboration, and measurable results.</div>
+
+        <h2 id="about">About Me</h2>
+        <ul class="bullet-list">
+          <li>Results-driven Technical Project Manager & Agile Coach with <strong>18+ years</strong> of IT experience.</li>
+          <li>Led enterprise software delivery, Agile transformations, and cross-functional teams across global organizations.</li>
+          <li>Expertise in Agile, DevOps, SaaS delivery, stakeholder management and continuous improvement.</li>
+        </ul>
+
+        <h2 id="experience">Experience (Highlights)</h2>
+        <ul class="bullet-list">
+          <li><strong>Tata Consultancy Services (TCS)</strong> — Technical Project Manager / Senior Scrum Master / Agile Coach (2022–Present)
+            <ul>
+              <li>Led Agile & DevOps delivery for 20+ cross-functional teams.</li>
+              <li>Improved sprint velocity by <strong>30%</strong> and strengthened time-to-market.</li>
+              <li>Championed AI-based automation for Agile reporting (MS Copilot, GitHub Copilot).</li>
+            </ul>
+          </li>
+          <li><strong>ProcessMAP Infotech</strong> — Technical Project Manager / Scrum Master (2007–2022)
+            <ul>
+              <li>Managed Agile delivery for enterprise EHS SaaS platforms (Fortune 500 clients).</li>
+              <li>Spearheaded cloud modernization, reducing operational costs by <strong>40%</strong>.</li>
+              <li>Administered Jira workflows, dashboards, and delivery metrics.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2 id="skills">Core Competencies</h2>
+        <div class="grid-3" style="margin-top:8px">
+          <div class="chip">Agile Delivery & Coaching (Scrum, Kanban, SAFe)</div>
+          <div class="chip">Project & Program Management (PMP)</div>
+          <div class="chip">Servant Leadership & Team Coaching</div>
+          <div class="chip">Jira • Confluence • Azure DevOps</div>
+          <div class="chip">CI/CD • DevOps • Azure Cloud</div>
+          <div class="chip">AI Tools (MS Copilot, GitHub Copilot)</div>
+        </div>
+
+        <h2 id="education" style="margin-top:18px">Education & Certifications</h2>
+        <ul class="bullet-list">
+          <li>B.Tech – Mechanical Engineering, KIIT University</li>
+          <li>Project Management Professional (PMP) — PMI</li>
+          <li>Professional Scrum Master I (PSM I) — Scrum.org</li>
+          <li>AI in Project Management — PMI</li>
+          <li>Azure Cloud Computing Certification</li>
+        </ul>
+
+        <h2 id="projects" style="margin-top:18px">Featured Projects & Impact</h2>
+        <div class="projects">
+          <div class="project-card">
+            <strong>Agile Transformation Program — TCS</strong>
+            <div class="meta">Scaled Agile, PI planning, Scrum of Scrums. Outcome: 30% velocity uplift.</div>
+          </div>
+          <div class="project-card">
+            <strong>EHS SaaS Modernization — ProcessMAP</strong>
+            <div class="meta">Legacy to multi-tenant cloud migration. Outcome: 40% operational cost reduction.</div>
+          </div>
+          <div class="project-card">
+            <strong>AI in Project Management</strong>
+            <div class="meta">Integrated Copilot tools to automate reporting — reduced manual effort by 25%.</div>
+          </div>
+          <div class="project-card">
+            <strong>Delivery Governance & Metrics</strong>
+            <div class="meta">Jira administration, dashboards, release coordination and executive reporting.</div>
+          </div>
+        </div>
+
+        <div class="cta-row" style="margin-top:18px">
+          <a class="btn btn-primary" href="Sisir_Senapati_TPM_SSM_AC_DL.pdf" download>Download Resume (PDF)</a>
+          <a class="btn btn-ghost" href="mailto:sisir.senapati@gmail.com">Email Me</a>
+          <a class="btn" style="border:1px solid #e6eef8" href="https://linkedin.com/in/sisir-senapati" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Professional Experience</div>
-      <ul class="section-list">
-        <li>
-          <b>TATA CONSULTANCY SERVICES (TCS)</b>, Technical Project Manager, July 2022 &ndash; Present<br>
-          &bull; Led Agile delivery for 20+ teams, accelerated sprint velocity by 30%, and managed complex SaaS and digital initiatives.<br>
-          &bull; Championed Agile transformation, executive stakeholder management, and DevOps culture.<br>
-          &bull; Enabled AI-based reporting, improved productivity using MS and GitHub Copilot.
-        </li>
-        <li style="margin-top: 12px;">
-          <b>PROCESSMAP INFOTECH</b>, Technical Project Manager / Scrum Master, Aug 2007 – June 2022<br>
-          &bull; Managed global Agile teams for Fortune 500 EHS SaaS products.<br>
-          &bull; Modernized legacy solutions, migrated to Azure cloud.<br>
-          &bull; Mentored teams in Agile, stakeholder communication, and technical delivery.
-        </li>
-      </ul>
-    </div>
-    <div class="section">
-      <div class="section-title">Education & Certifications</div>
-      <table class="section-table">
-        <tr><th>Certification</th><th>Authority</th></tr>
-        <tr><td>Project Management Professional (PMP)</td><td>PMI</td></tr>
-        <tr><td>Professional Scrum Master I (PSM I)</td><td>Scrum.org</td></tr>
-        <tr><td>AI in PM, Azure Cloud</td><td>PMI, Microsoft</td></tr>
-        <tr><td>B.Tech (Mechanical)</td><td>KIIT, Bhubaneswar</td></tr>
-      </table>
-    </div>
-    <div class="section">
-      <div class="section-title">Achievements</div>
-      <ul class="section-list">
-        <li>Delivery velocity +30% via Agile & DevOps enablement.</li>
-        <li>Led global Agile transformation, improved maturity & value delivery.</li>
-        <li>Recognized for Delivery Excellence and Best Project Manager awards.</li>
-      </ul>
-    </div>
+
+      <aside class="card" style="padding:18px;">
+        <div class="photo">
+          <!-- make sure MyPhoto.png is in the same repo folder -->
+          <img src="MyPhoto.png" alt="Sisir Senapati — Profile Photo">
+        </div>
+
+        <div style="margin-top:16px">
+          <h2>Quick Contact</h2>
+          <div class="meta">📍 Bhubaneswar, India</div>
+          <div class="meta">📞 <a class="contact" href="tel:+919861116342">+91 98611 16342</a></div>
+          <div class="meta">✉️ <a class="contact" href="mailto:sisir.senapati@gmail.com">sisir.senapati@gmail.com</a></div>
+          <div class="meta" style="margin-top:8px">🔗 <a href="https://linkedin.com/in/sisir-senapati" target="_blank" rel="noopener">linkedin.com/in/sisir-senapati</a></div>
+        </div>
+
+        <div style="margin-top:18px">
+          <h2>USP</h2>
+          <div class="meta">I combine Agile leadership, technical delivery expertise, and a people-first coaching approach to transform how teams deliver value — driving innovation, collaboration, and measurable results.</div>
+        </div>
+
+        <div style="margin-top:18px">
+          <h2>Awards & Recognition</h2>
+          <ul class="bullet-list">
+            <li>Delivery Excellence & Client Value Creation — TCS & ProcessMAP</li>
+            <li>Best Technical Project Manager Award</li>
+            <li>30% improvement in delivery velocity (program level)</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <strong>Sisir Senapati</strong> — Technical Project Manager • Agile Coach • Delivery Leader</div>
+      <div style="margin-top:6px" class="meta">Built for GitHub Pages. Put <code>index.html</code>, <code>MyPhoto.png</code>, and <code>Sisir_Senapati_TPM_SSM_AC_DL.pdf</code> in the same repository.</div>
+    </footer>
   </div>
-  <footer>
-    &copy; 2025 Sisir Senapati
-  </footer>
 </body>
 </html>
