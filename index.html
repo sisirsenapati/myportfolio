@@ -478,14 +478,14 @@
     const LIKES_KEY = "likes";
 
     // Update and display views
-    fetch(`${COUNTER_API}/hit/${NAMESPACE}/${VIEWS_KEY}`)
+    fetch(`${COUNTER_API}/${NAMESPACE}/${VIEWS_KEY}/up`)
         .then(res => res.json())
         .then(data => {
             document.getElementById("viewCount").textContent = data.count.toLocaleString();
         });
 
     // Display likes
-    fetch(`${COUNTER_API}/get/${NAMESPACE}/${LIKES_KEY}`)
+    fetch(`${COUNTER_API}/${NAMESPACE}/${LIKES_KEY}`)
         .then(res => res.json())
         .then(data => {
             document.getElementById("likeCount").textContent = data.count?.toLocaleString() || 0;
@@ -493,7 +493,7 @@
 
     // Like button functionality
     document.getElementById("likeButton").addEventListener("click", () => {
-        fetch(`${COUNTER_API}/hit/${NAMESPACE}/${LIKES_KEY}/up`)
+        fetch(`${COUNTER_API}/${NAMESPACE}/${LIKES_KEY}/up`)
             .then(res => res.json())
             .then(data => {
                 document.getElementById("likeCount").textContent = data.count.toLocaleString();
