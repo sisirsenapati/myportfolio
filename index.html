@@ -471,40 +471,40 @@
 
     <!-- Engagement Script -->
     <script>
-        // Replace "sisir-senapati-portfolio" with your unique namespace
-        const COUNTER_API = "https://api.counterapi.dev/v1";
-        const NAMESPACE = "sisir-senapati-portfolio";
-        const VIEWS_KEY = "views";
-        const LIKES_KEY = "likes";
+    // Replace "sisir-senapati-portfolio" with your unique namespace
+    const COUNTER_API = "https://api.counterapi.dev/v1";
+    const NAMESPACE = "sisir-senapati-portfolio";
+    const VIEWS_KEY = "views";
+    const LIKES_KEY = "likes";
 
-        // Update and display views
-        fetch(`${COUNTER_API}/hit/${NAMESPACE}/${VIEWS_KEY}`)
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("viewCount").textContent = data.value.toLocaleString();
-            });
-
-        // Display likes
-        fetch(`${COUNTER_API}/get/${NAMESPACE}/${LIKES_KEY}`)
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("likeCount").textContent = data.value?.toLocaleString() || 0;
-            });
-
-        // Like button functionality
-        document.getElementById("likeButton").addEventListener("click", () => {
-            fetch(`${COUNTER_API}/hit/${NAMESPACE}/${LIKES_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById("likeCount").textContent = data.value.toLocaleString();
-                    const btn = document.getElementById("likeButton");
-                    btn.textContent = "❤️ Liked!";
-                    btn.style.background = "var(--accent)";
-                    btn.style.transform = "scale(1.05)";
-                    setTimeout(() => (btn.style.transform = "scale(1)"), 200);
-                });
+    // Update and display views
+    fetch(`${COUNTER_API}/hit/${NAMESPACE}/${VIEWS_KEY}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("viewCount").textContent = data.count.toLocaleString();
         });
-    </script>
+
+    // Display likes
+    fetch(`${COUNTER_API}/get/${NAMESPACE}/${LIKES_KEY}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("likeCount").textContent = data.count?.toLocaleString() || 0;
+        });
+
+    // Like button functionality
+    document.getElementById("likeButton").addEventListener("click", () => {
+        fetch(`${COUNTER_API}/hit/${NAMESPACE}/${LIKES_KEY}/up`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("likeCount").textContent = data.count.toLocaleString();
+                const btn = document.getElementById("likeButton");
+                btn.textContent = "❤️ Liked!";
+                btn.style.background = "var(--accent)";
+                btn.style.transform = "scale(1.05)";
+                setTimeout(() => (btn.style.transform = "scale(1)"), 200);
+            });
+    });
+</script>
 
     <footer>
         <p>© 2025 Sisir Senapati — Technical Project Manager | Agile Coach | Delivery Leader</p>
