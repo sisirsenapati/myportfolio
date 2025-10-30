@@ -428,6 +428,57 @@
     <footer>
         <p>© 2025 Sisir Senapati — Technical Project Manager | Agile Coach | Delivery Leader</p>
         <p>Built with ❤️ using HTML & CSS | Hosted on GitHub Pages</p>
+        <section id="social" style="text-align:center; padding:40px 10%;">
+            <h3>💬 Engagement</h3>
+            <p>Thanks for visiting my portfolio! Show some ❤️ if you like what you see.</p>
+
+            <!-- View Counter -->
+            <p style="font-size:1.1rem;">
+                👁️ <span id="viewCount">0</span> Views &nbsp;&nbsp; | &nbsp;&nbsp;
+                ❤️ <span id="likeCount">0</span> Likes
+            </p>
+
+            <button id="likeButton"
+                    style="background:var(--secondary);color:white;border:none;
+           border-radius:6px;padding:10px 20px;font-weight:600;
+           cursor:pointer;margin-top:10px;transition:0.3s;">
+                ❤️ Like This Portfolio
+            </button>
+        </section>
+
+        <script>
+            // Replace "sisir-senapati-portfolio" with your own unique slug name
+            const COUNTER_API = "https://api.countapi.xyz";
+            const NAMESPACE = "sisir-senapati-portfolio";
+            const VIEWS_KEY = "views";
+            const LIKES_KEY = "likes";
+
+            // Increment and show view count
+            fetch(`${COUNTER_API}/hit/${NAMESPACE}/${VIEWS_KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("viewCount").textContent = data.value.toLocaleString();
+                });
+
+            // Get like count
+            fetch(`${COUNTER_API}/get/${NAMESPACE}/${LIKES_KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("likeCount").textContent = data.value?.toLocaleString() || 0;
+                });
+
+            // Handle Like button
+            document.getElementById("likeButton").addEventListener("click", () => {
+                fetch(`${COUNTER_API}/hit/${NAMESPACE}/${LIKES_KEY}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        document.getElementById("likeCount").textContent = data.value.toLocaleString();
+                        document.getElementById("likeButton").textContent = "❤️ Liked!";
+                        document.getElementById("likeButton").style.background = "var(--accent)";
+                    });
+            });
+        </script>
+
     </footer>
 
     <script>
