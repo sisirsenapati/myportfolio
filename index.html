@@ -424,60 +424,91 @@
             <li>🔗 <a href="https://linkedin.com/in/sisir-senapati" target="_blank">linkedin.com/in/sisir-senapati</a></li>
         </ul>
     </section>
+    <section id="social" style="text-align:center; padding:60px 10%;">
+        <h3>💬 Engagement</h3>
+        <p>Thanks for visiting my portfolio! Show some ❤️ if you like what you see.</p>
+
+        <!-- Visitor and Like Counter -->
+        <p style="font-size:1.1rem; margin-top:10px;">
+            👁️ <span id="viewCount">0</span> Views &nbsp;&nbsp; | &nbsp;&nbsp;
+            ❤️ <span id="likeCount">0</span> Likes
+        </p>
+
+        <button id="likeButton"
+                style="background:var(--secondary);color:white;border:none;
+           border-radius:8px;padding:12px 28px;font-weight:600;
+           cursor:pointer;margin-top:14px;transition:0.3s;">
+            ❤️ Like This Portfolio
+        </button>
+
+        <!-- Social Share Bar -->
+        <div style="margin-top:40px;">
+            <h4 style="color:var(--primary); margin-bottom:16px;">🔗 Share This Portfolio</h4>
+            <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://YOUR_GITHUB_USERNAME.github.io/&title=Sisir%20Senapati%20Portfolio&summary=Check%20out%20this%20professional%20portfolio%20of%20Sisir%20Senapati!&source=LinkedIn"
+                   target="_blank"
+                   style="background:#0a66c2;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;">
+                    🔗 LinkedIn
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/sisirsenapati"
+                   target="_blank"
+                   style="background:#24292e;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;">
+                    🐙 GitHub
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:?subject=Sisir%20Senapati%20Portfolio&body=Check%20out%20this%20portfolio%20site%3A%20https%3A%2F%2FYOUR_GITHUB_USERNAME.github.io%2F"
+                   style="background:#e63946;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;">
+                    ✉️ Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Script -->
+    <script>
+        // Replace "sisir-senapati-portfolio" with your unique namespace
+        const COUNTER_API = "https://api.countapi.xyz";
+        const NAMESPACE = "sisir-senapati-portfolio";
+        const VIEWS_KEY = "views";
+        const LIKES_KEY = "likes";
+
+        // Update and display views
+        fetch(`${COUNTER_API}/hit/${NAMESPACE}/${VIEWS_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("viewCount").textContent = data.value.toLocaleString();
+            });
+
+        // Display likes
+        fetch(`${COUNTER_API}/get/${NAMESPACE}/${LIKES_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("likeCount").textContent = data.value?.toLocaleString() || 0;
+            });
+
+        // Like button functionality
+        document.getElementById("likeButton").addEventListener("click", () => {
+            fetch(`${COUNTER_API}/hit/${NAMESPACE}/${LIKES_KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("likeCount").textContent = data.value.toLocaleString();
+                    const btn = document.getElementById("likeButton");
+                    btn.textContent = "❤️ Liked!";
+                    btn.style.background = "var(--accent)";
+                    btn.style.transform = "scale(1.05)";
+                    setTimeout(() => (btn.style.transform = "scale(1)"), 200);
+                });
+        });
+    </script>
 
     <footer>
         <p>© 2025 Sisir Senapati — Technical Project Manager | Agile Coach | Delivery Leader</p>
         <p>Built with ❤️ using HTML & CSS | Hosted on GitHub Pages</p>
-        <section id="social" style="text-align:center; padding:40px 10%;">
-            <h3>💬 Engagement</h3>
-            <p>Thanks for visiting my portfolio! Show some ❤️ if you like what you see.</p>
-
-            <!-- View Counter -->
-            <p style="font-size:1.1rem;">
-                👁️ <span id="viewCount">0</span> Views &nbsp;&nbsp; | &nbsp;&nbsp;
-                ❤️ <span id="likeCount">0</span> Likes
-            </p>
-
-            <button id="likeButton"
-                    style="background:var(--secondary);color:white;border:none;
-           border-radius:6px;padding:10px 20px;font-weight:600;
-           cursor:pointer;margin-top:10px;transition:0.3s;">
-                ❤️ Like This Portfolio
-            </button>
-        </section>
-
-        <script>
-            // Replace "sisir-senapati-portfolio" with your own unique slug name
-            const COUNTER_API = "https://api.countapi.xyz";
-            const NAMESPACE = "sisir-senapati-portfolio";
-            const VIEWS_KEY = "views";
-            const LIKES_KEY = "likes";
-
-            // Increment and show view count
-            fetch(`${COUNTER_API}/hit/${NAMESPACE}/${VIEWS_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById("viewCount").textContent = data.value.toLocaleString();
-                });
-
-            // Get like count
-            fetch(`${COUNTER_API}/get/${NAMESPACE}/${LIKES_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById("likeCount").textContent = data.value?.toLocaleString() || 0;
-                });
-
-            // Handle Like button
-            document.getElementById("likeButton").addEventListener("click", () => {
-                fetch(`${COUNTER_API}/hit/${NAMESPACE}/${LIKES_KEY}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        document.getElementById("likeCount").textContent = data.value.toLocaleString();
-                        document.getElementById("likeButton").textContent = "❤️ Liked!";
-                        document.getElementById("likeButton").style.background = "var(--accent)";
-                    });
-            });
-        </script>
 
     </footer>
 
