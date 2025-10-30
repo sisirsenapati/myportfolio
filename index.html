@@ -1,268 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sisir Senapati | Technical Project Manager & Agile Coach</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sisir Senapati | Technical Project Manager & Agile Coach</title>
 
-<!-- ✅ SEO & LinkedIn Preview -->
-<meta name="description" content="Sisir Senapati – Technical Project Manager | Senior Scrum Master | Agile Coach | Delivery Leader with 18+ years of experience driving Agile excellence and digital transformation.">
-<meta property="og:title" content="Sisir Senapati | Technical Project Manager & Agile Coach">
-<meta property="og:description" content="Results-driven Agile & Technical Project Manager with 18+ years of IT experience. PMP, PSM I, and PMI-AI certified.">
-<meta property="og:image" content="MyPhoto.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/">
+    <!-- ✅ SEO & LinkedIn Preview -->
+    <meta name="description" content="Sisir Senapati – Technical Project Manager | Senior Scrum Master | Agile Coach | Delivery Leader with 18+ years of experience driving Agile excellence and digital transformation.">
+    <meta property="og:title" content="Sisir Senapati | Technical Project Manager & Agile Coach">
+    <meta property="og:description" content="Results-driven Agile & Technical Project Manager with 18+ years of IT experience. PMP, PSM I, and PMI-AI certified.">
+    <meta property="og:image" content="MyPhoto.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/">
 
-<!-- ✅ Favicon -->
-<link rel="icon" type="image/png" href="MyPhoto.png">
+    <!-- ✅ Favicon -->
+    <link rel="icon" type="image/png" href="MyPhoto.png">
 
-<!-- ✅ Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- ✅ Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --primary:#1b3c73;--secondary:#2067b0;--accent:#00b8d4;
-  --bg:#f4f7fb;--card-bg:#ffffff;--text:#1a1a1a;--text-light:#fafafa;
-  --shadow:0 6px 18px rgba(0,0,0,0.08);--fade-distance:40px;
-}
-[data-theme="dark"]{
-  --primary:#e3f2ff;--secondary:#00a0e0;--accent:#66e0ff;
-  --bg:#0f172a;--card-bg:#1e293b;--text:#f5f5f5;--text-light:#ffffff;
-  --shadow:0 6px 18px rgba(255,255,255,0.06);
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);
-  line-height:1.6;scroll-behavior:smooth;transition:background 0.4s,color 0.4s;
-}
-header{
-  background:linear-gradient(120deg,var(--primary),var(--secondary));
-  color:var(--text-light);padding:20px 10%;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
-  box-shadow:var(--shadow);
-}
-header h1{font-size:1.6rem;font-weight:700;}
-nav a{
-  color:var(--text-light);text-decoration:none;margin-left:20px;
-  font-weight:500;transition:color 0.3s;
-}
-nav a:hover{color:var(--accent);}
-.theme-toggle{
-  background:none;border:2px solid var(--accent);border-radius:50%;
-  color:var(--text-light);width:36px;height:36px;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:background 0.3s,color 0.3s;
-}
-.theme-toggle:hover{background:var(--accent);color:#000;}
+    <style>
+        :root {
+            --primary: #1b3c73;
+            --secondary: #2067b0;
+            --accent: #00b8d4;
+            --bg: #f4f7fb;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --text-light: #fafafa;
+            --shadow: 0 6px 18px rgba(0,0,0,0.08);
+            --fade-distance: 40px;
+        }
 
-.hero{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:70px 10%;flex-wrap:wrap;
-  background:linear-gradient(135deg,#f8fafc 0%,#e7f0fb 100%);
-  transition:background 0.4s;
-}
-[data-theme="dark"] .hero{
-  background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);
-}
-.hero-content{flex:1 1 55%;max-width:600px;}
-.hero-content h2{
-  font-size:2.3rem;color:var(--primary);margin-bottom:12px;line-height:1.3;
-}
-.hero-content p{font-size:1rem;margin-bottom:24px;color:var(--text);}
-.hero-buttons a{
-  display:inline-block;padding:12px 24px;border-radius:6px;margin-right:10px;
-  text-decoration:none;font-weight:600;transition:0.3s;
-}
-.btn-primary{background:var(--secondary);color:white;}
-.btn-primary:hover{background:var(--accent);}
-.btn-outline{border:2px solid var(--secondary);color:var(--secondary);}
-.btn-outline:hover{background:var(--secondary);color:white;}
-.hero-photo{text-align:center;}
-.hero-photo img{
-  width:280px;height:280px;object-fit:cover;border-radius:50%;
-  border:6px solid white;box-shadow:0 12px 30px rgba(0,0,0,0.15);
-  transition:transform 0.4s;
-}
-.hero-photo img:hover{transform:scale(1.05);}
-section{
-  padding:60px 10%;background:var(--card-bg);margin:20px auto;border-radius:14px;
-  box-shadow:var(--shadow);max-width:1100px;opacity:0;transform:translateY(var(--fade-distance));
-  transition:all 0.8s ease-out;
-}
-section.visible{opacity:1;transform:none;}
-section h3{
-  font-size:1.6rem;color:var(--primary);margin-bottom:20px;
-  border-left:5px solid var(--accent);padding-left:12px;
-}
-ul{list-style:none;}
-ul li{
-  background:#f1f5f9;padding:10px 14px;border-radius:8px;margin-bottom:8px;
-  transition:background 0.3s;
-}
-[data-theme="dark"] ul li{background:#1e293b;}
-ul li:hover{background:#e0ebfa;}
-.grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;
-}
-.chip{
-  background:#e7f0fb;padding:10px;text-align:center;border-radius:8px;
-  font-weight:600;color:var(--primary);transition:transform 0.3s;
-}
-.chip:hover{transform:scale(1.05);background:#d9e9fa;}
-[data-theme="dark"] .chip{background:#243757;color:#a3d8ff;}
-.badges{
-  display:flex;flex-wrap:wrap;gap:24px;justify-content:center;align-items:center;
-}
-.badges img{
-  width:150px;height:auto;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.1);
-  transition:transform 0.4s,box-shadow 0.4s;
-}
-.badges img:hover{transform:scale(1.08);box-shadow:0 8px 25px rgba(0,0,0,0.2);}
-footer{
-  background:var(--primary);color:var(--text-light);
-  text-align:center;padding:24px 10%;margin-top:40px;
-}
-footer a{color:var(--accent);text-decoration:none;font-weight:600;}
-@media(max-width:768px){
-  .hero{flex-direction:column;text-align:center;}
-  .hero-content,.hero-photo{flex:1 1 100%;}
-  .hero-buttons a{margin-bottom:10px;}
-}
-</style>
+        [data-theme="dark"] {
+            --primary: #e3f2ff;
+            --secondary: #00a0e0;
+            --accent: #66e0ff;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f5f5f5;
+            --text-light: #ffffff;
+            --shadow: 0 6px 18px rgba(255,255,255,0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins',sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            transition: background 0.4s,color 0.4s;
+        }
+
+        header {
+            background: linear-gradient(120deg,var(--primary),var(--secondary));
+            color: var(--text-light);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow);
+        }
+
+            header h1 {
+                font-size: 1.6rem;
+                font-weight: 700;
+            }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+            nav a:hover {
+                color: var(--accent);
+            }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            color: var(--text-light);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s,color 0.3s;
+        }
+
+            .theme-toggle:hover {
+                background: var(--accent);
+                color: #000;
+            }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 70px 10%;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg,#f8fafc 0%,#e7f0fb 100%);
+            transition: background 0.4s;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg,#1e293b 0%,#0f172a 100%);
+        }
+
+        .hero-content {
+            flex: 1 1 55%;
+            max-width: 600px;
+        }
+
+            .hero-content h2 {
+                font-size: 2.3rem;
+                color: var(--primary);
+                margin-bottom: 12px;
+                line-height: 1.3;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 24px;
+                color: var(--text);
+            }
+
+        .hero-buttons a {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            margin-right: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background: var(--accent);
+            }
+
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+            .btn-outline:hover {
+                background: var(--secondary);
+                color: white;
+            }
+
+        .hero-photo {
+            text-align: center;
+        }
+
+            .hero-photo img {
+                width: 280px;
+                height: 280px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 6px solid white;
+                box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+                transition: transform 0.4s;
+            }
+
+                .hero-photo img:hover {
+                    transform: scale(1.05);
+                }
+
+        section {
+            padding: 60px 10%;
+            background: var(--card-bg);
+            margin: 20px auto;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            max-width: 1100px;
+            opacity: 0;
+            transform: translateY(var(--fade-distance));
+            transition: all 0.8s ease-out;
+        }
+
+            section.visible {
+                opacity: 1;
+                transform: none;
+            }
+
+            section h3 {
+                font-size: 1.6rem;
+                color: var(--primary);
+                margin-bottom: 20px;
+                border-left: 5px solid var(--accent);
+                padding-left: 12px;
+            }
+
+        ul {
+            list-style: none;
+        }
+
+            ul li {
+                background: #f1f5f9;
+                padding: 10px 14px;
+                border-radius: 8px;
+                margin-bottom: 8px;
+                transition: background 0.3s;
+            }
+
+        [data-theme="dark"] ul li {
+            background: #1e293b;
+        }
+
+        ul li:hover {
+            background: #e0ebfa;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 16px;
+        }
+
+        .chip {
+            background: #e7f0fb;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+            .chip:hover {
+                transform: scale(1.05);
+                background: #d9e9fa;
+            }
+
+        [data-theme="dark"] .chip {
+            background: #243757;
+            color: #a3d8ff;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .badges img {
+                width: 150px;
+                height: auto;
+                border-radius: 12px;
+                box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+                transition: transform 0.4s,box-shadow 0.4s;
+            }
+
+                .badges img:hover {
+                    transform: scale(1.08);
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+                }
+
+        footer {
+            background: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 24px 10%;
+            margin-top: 40px;
+        }
+
+            footer a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+        @media(max-width:768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content, .hero-photo {
+                flex: 1 1 100%;
+            }
+
+            .hero-buttons a {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<header>
-  <h1>Sisir Senapati</h1>
-  <div style="display:flex;align-items:center;gap:14px;">
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#certs">Certifications</a>
-      <a href="#awards">Awards</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
-  </div>
-</header>
+    <header>
+        <h1>Sisir Senapati</h1>
+        <div style="display:flex;align-items:center;gap:14px;">
+            <nav>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#certs">Certifications</a>
+                <a href="#awards">Awards</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+        </div>
+    </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h2>Driving Agile Excellence & Digital Transformation</h2>
-    <p>I combine Agile leadership, technical delivery expertise, and a people-first coaching approach to
-      transform how teams deliver value — driving innovation, collaboration, and measurable results.</p>
-    <div class="hero-buttons">
-      <a href="Sisir_Senapati_TPM_SSM_AC_DL.pdf" class="btn-primary" download>📄 Download CV</a>
-      <a href="https://linkedin.com/in/sisir-senapati" target="_blank" class="btn-outline">🔗 LinkedIn</a>
-    </div>
-  </div>
-  <div class="hero-photo">
-    <img src="MyPhoto.png" alt="Sisir Senapati Photo">
-  </div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Driving Agile Excellence & Digital Transformation</h2>
+            <p>
+                I combine Agile leadership, technical delivery expertise, and a people-first coaching approach to
+                transform how teams deliver value — driving innovation, collaboration, and measurable results.
+            </p>
+            <div class="hero-buttons">
+                <a href="Sisir_Senapati_TPM_SSM_AC_DL.pdf" class="btn-primary" download>📄 Download CV</a>
+                <a href="https://linkedin.com/in/sisir-senapati" target="_blank" class="btn-outline">🔗 LinkedIn</a>
+            </div>
+        </div>
+        <div class="hero-photo">
+            <img src="MyPhoto.png" alt="Sisir Senapati Photo">
+        </div>
+    </section>
 
-<section id="about">
-  <h3>About Me</h3>
-  <ul>
-    <li>Technical Project Manager, Senior Scrum Master, Agile Coach & Delivery Leader with 18+ years of IT experience.</li>
-    <li>Expert in Agile, DevOps, SaaS Delivery, and Cloud transformation across global enterprise programs.</li>
-    <li>Recognized for Delivery Excellence, Client Value Creation, and servant leadership impact.</li>
-  </ul>
-</section>
+    <section id="about">
+        <h3>About Me</h3>
+        <ul>
+            <li>Technical Project Manager, Senior Scrum Master, Agile Coach & Delivery Leader with 18+ years of IT experience.</li>
+            <li>Expert in Agile, DevOps, SaaS Delivery, and Cloud transformation across global enterprise programs.</li>
+            <li>Recognized for Delivery Excellence, Client Value Creation, and servant leadership impact.</li>
+        </ul>
+    </section>
 
-<section id="experience">
-  <h3>Professional Experience</h3>
-  <ul>
-    <li><strong>Tata Consultancy Services (TCS)</strong> — Technical Project Manager | Senior Scrum Master | Agile Coach (2022–Present)
-      <ul>
-        <li>Led Agile and DevOps delivery across <strong>20+ global teams</strong>, driving a <strong>30% improvement in sprint velocity</strong> and <strong>25% reduction in release cycle times</strong>.</li>
-        <li>Managed <strong>multi-million-dollar software delivery portfolios</strong> in Retail & E-Commerce domains, ensuring 100% on-time and quality-driven releases.</li>
-        <li>Championed <strong>AI-based automation</strong> using Microsoft Copilot and GitHub Copilot — cutting manual Agile reporting effort by <strong>25%</strong>.</li>
-        <li>Facilitated enterprise-level ceremonies (PI Planning, Scrum of Scrums, Inspect & Adapt) aligning delivery with business goals.</li>
-        <li>Implemented <strong>governance dashboards</strong> in Jira and Azure DevOps, improving KPI visibility by <strong>40%</strong>.</li>
-        <li>Mentored <strong>10+ Scrum Masters and Product Owners</strong>, advancing Agile maturity across programs.</li>
-      </ul>
-    </li>
-    <li><strong>ProcessMAP Infotech Pvt. Ltd.</strong> — Technical Project Manager | Scrum Master (2007–2022)
-      <ul>
-        <li>Managed <strong>enterprise SaaS and EHS platform delivery</strong> for Fortune 500 clients, achieving <strong>95% customer satisfaction</strong>.</li>
-        <li>Directed Agile product releases across distributed teams of <strong>40+ members</strong> (Developers, QA, Designers, Product Managers).</li>
-        <li>Spearheaded <strong>cloud modernization and migration</strong> to Azure, cutting operational costs by <strong>40%</strong> and boosting uptime to <strong>99.9%</strong>.</li>
-        <li>Enhanced delivery predictability and sprint cadence, improving lead time by <strong>20%</strong>.</li>
-        <li>Designed and deployed custom <strong>Jira automation workflows and dashboards</strong> to enhance transparency.</li>
-        <li>Received <strong>Best Technical Project Manager</strong> & <strong>Best Employee Awards</strong> for leadership excellence.</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+    <section id="experience">
+        <h3>Professional Experience</h3>
 
-<section id="skills">
-  <h3>Core Competencies</h3>
-  <div class="grid">
-    <div class="chip">Agile Delivery & Coaching</div>
-    <div class="chip">Project & Program Management (PMP)</div>
-    <div class="chip">Servant Leadership</div>
-    <div class="chip">Jira • Confluence • Azure DevOps</div>
-    <div class="chip">CI/CD • DevOps • Cloud (Azure)</div>
-    <div class="chip">AI Tools: MS Copilot, GitHub Copilot</div>
-  </div>
-</section>
+        <div style="margin-bottom: 40px;">
+            <h4 style="color: var(--secondary); font-size: 1.2rem; margin-bottom: 8px;">
+                <strong>Tata Consultancy Services (TCS)</strong> — Technical Project Manager | Senior Scrum Master | Agile Coach
+            </h4>
+            <p style="font-style: italic; margin-bottom: 14px;">July 2022 – Present</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>• Led Agile and DevOps delivery across 20+ global teams, achieving a 30% improvement in sprint velocity and 25% reduction in release cycle time.</li>
+                <li>• Managed multi-million-dollar software delivery portfolios across Retail and E-Commerce sectors, ensuring 100% on-time, high-quality product releases.</li>
+                <li>• Introduced AI-driven automation with Microsoft Copilot and GitHub Copilot, reducing manual reporting effort by 25% and accelerating decision-making.</li>
+                <li>• Orchestrated large-scale Agile ceremonies including PI Planning, Scrum of Scrums, and Inspect & Adapt sessions to align strategy and execution.</li>
+                <li>• Enhanced delivery transparency through governance dashboards in Jira and Azure DevOps, improving KPI visibility by 40%.</li>
+                <li>• Coached and mentored over 10 Scrum Masters and Product Owners to strengthen organizational Agile maturity.</li>
+            </ul>
+        </div>
 
-<section id="certs">
-  <h3>Certifications & Badges</h3>
-  <div class="badges">
-    <img src="PMP.png" alt="PMP Certification Badge">
-    <img src="PSMI.png" alt="Professional Scrum Master I Badge">
-    <img src="PM-AI.png" alt="PMI Talking to AI Badge">
-  </div>
-</section>
+        <div>
+            <h4 style="color: var(--secondary); font-size: 1.2rem; margin-bottom: 8px;">
+                <strong>ProcessMAP Infotech Pvt. Ltd.</strong> — Technical Project Manager | Scrum Master
+            </h4>
+            <p style="font-style: italic; margin-bottom: 14px;">August 2007 – June 2022</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>• Managed enterprise SaaS and EHS platform delivery for Fortune 500 clients, maintaining a 95% customer satisfaction rate and zero SLA breaches.</li>
+                <li>• Directed Agile product releases across 40+ cross-functional members spanning Development, QA, Design, and Product teams.</li>
+                <li>• Spearheaded cloud migration to Azure, cutting infrastructure costs by 40% and achieving 99.9% uptime for global clients.</li>
+                <li>• Improved delivery predictability and sprint cadence by 20% through value-driven backlog grooming and sprint analytics.</li>
+                <li>• Implemented custom Jira workflows and automation to optimize visibility, reducing manual tracking time by 30%.</li>
+                <li>• Received “Best Technical Project Manager” and “Best Employee” awards for outstanding leadership and client impact.</li>
+            </ul>
+        </div>
+    </section>
 
-<section id="awards">
-  <h3>Awards & Recognition</h3>
-  <ul>
-    <li>🏅 Recognized for Delivery Excellence & Client Value Creation – TCS & ProcessMAP.</li>
-    <li>🌍 Led multiple Agile transformation initiatives improving team maturity & business agility.</li>
-    <li>🚀 Improved sprint velocity by 30% through Agile and DevOps enablement.</li>
-    <li>🏆 Awarded “Best Technical Project Manager” for outstanding leadership and results.</li>
-  </ul>
-</section>
 
-<section id="contact">
-  <h3>Contact</h3>
-  <ul>
-    <li>📍 Bhubaneswar, India</li>
-    <li>📧 <a href="mailto:sisir.senapati@gmail.com">sisir.senapati@gmail.com</a></li>
-    <li>📞 <a href="tel:+919861116342">+91 98611 16342</a></li>
-    <li>🔗 <a href="https://linkedin.com/in/sisir-senapati" target="_blank">linkedin.com/in/sisir-senapati</a></li>
-  </ul>
-</section>
+    <section id="skills">
+        <h3>Core Competencies</h3>
+        <div class="grid">
+            <div class="chip">Agile Delivery & Coaching</div>
+            <div class="chip">Project & Program Management (PMP)</div>
+            <div class="chip">Servant Leadership</div>
+            <div class="chip">Jira • Confluence • Azure DevOps</div>
+            <div class="chip">CI/CD • DevOps • Cloud (Azure)</div>
+            <div class="chip">AI Tools: MS Copilot, GitHub Copilot</div>
+        </div>
+    </section>
 
-<footer>
-  <p>© 2025 Sisir Senapati — Technical Project Manager | Agile Coach | Delivery Leader</p>
-  <p>Built with ❤️ using HTML & CSS | Hosted on GitHub Pages</p>
-</footer>
+    <section id="certs">
+        <h3>Certifications & Badges</h3>
+        <div class="badges">
+            <img src="PMP.png" alt="PMP Certification Badge">
+            <img src="PSMI.png" alt="Professional Scrum Master I Badge">
+            <img src="PM-AI.png" alt="PMI Talking to AI Badge">
+        </div>
+    </section>
 
-<script>
-// 🌙 Dark mode toggle
-const toggleBtn = document.getElementById('themeToggle');
-toggleBtn.addEventListener('click', () => {
-  document.body.dataset.theme =
-    document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-  toggleBtn.textContent = document.body.dataset.theme === 'dark' ? '☀️' : '🌙';
-});
+    <section id="awards">
+        <h3>Awards & Recognition</h3>
+        <ul>
+            <li>🏅 Recognized for Delivery Excellence & Client Value Creation – TCS & ProcessMAP.</li>
+            <li>🌍 Led multiple Agile transformation initiatives improving team maturity & business agility.</li>
+            <li>🚀 Improved sprint velocity by 30% through Agile and DevOps enablement.</li>
+            <li>🏆 Awarded “Best Technical Project Manager” for outstanding leadership and results.</li>
+        </ul>
+    </section>
 
-// ✨ Fade-in animation
-const sections = document.querySelectorAll('section');
-const reveal = () => {
-  const trigger = window.innerHeight * 0.85;
-  sections.forEach(sec => {
-    const rect = sec.getBoundingClientRect();
-    if (rect.top < trigger) sec.classList.add('visible');
-  });
-};
-window.addEventListener('scroll', reveal);
-window.addEventListener('load', reveal);
-</script>
+    <section id="contact">
+        <h3>Contact</h3>
+        <ul>
+            <li>📍 Bhubaneswar, India</li>
+            <li>📧 <a href="mailto:sisir.senapati@gmail.com">sisir.senapati@gmail.com</a></li>
+            <li>📞 <a href="tel:+919861116342">+91 98611 16342</a></li>
+            <li>🔗 <a href="https://linkedin.com/in/sisir-senapati" target="_blank">linkedin.com/in/sisir-senapati</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Sisir Senapati — Technical Project Manager | Agile Coach | Delivery Leader</p>
+        <p>Built with ❤️ using HTML & CSS | Hosted on GitHub Pages</p>
+    </footer>
+
+    <script>
+        // 🌙 Dark mode toggle
+        const toggleBtn = document.getElementById('themeToggle');
+        toggleBtn.addEventListener('click', () => {
+            document.body.dataset.theme =
+                document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            toggleBtn.textContent = document.body.dataset.theme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // ✨ Fade-in animation
+        const sections = document.querySelectorAll('section');
+        const reveal = () => {
+            const trigger = window.innerHeight * 0.85;
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if (rect.top < trigger) sec.classList.add('visible');
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+    </script>
 </body>
 </html>
