@@ -488,7 +488,7 @@
     fetch(`${COUNTER_API}/${NAMESPACE}/${LIKES_KEY}`)
         .then(res => res.json())
         .then(data => {
-            document.getElementById("likeCount").textContent = data.count?.toLocaleString() || 0;
+            document.getElementById("likeCount").textContent = data.count.toLocaleString();
         });
 
     // Like button functionality
