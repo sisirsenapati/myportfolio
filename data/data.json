@@ -1,0 +1,60 @@
+{
+  "hero": {
+    "headline": "Driving Agile Excellence & Digital Transformation",
+    "sub": "I combine Agile leadership, technical delivery expertise, and a people-first coaching approach to transform how teams deliver value — driving innovation, collaboration, and measurable results."
+  },
+  "about": [
+    "Technical Project Manager, Senior Scrum Master, Agile Coach & Delivery Leader with 18+ years of IT experience.",
+    "Expert in Agile, DevOps, SaaS Delivery, and Cloud transformation across global enterprise programs.",
+    "Recognized for Delivery Excellence, Client Value Creation, and servant leadership impact."
+  ],
+  "experience": [
+    {
+      "company": "Tata Consultancy Services (TCS)",
+      "role": "Technical Project Manager | Senior Scrum Master | Agile Coach",
+      "duration": "July 2022 – Present",
+      "points": [
+        "Led Agile and DevOps delivery across 20+ global teams, achieving a 30% improvement in sprint velocity and 25% reduction in release cycle time.",
+        "Managed multi-million-dollar software delivery portfolios across Retail and E-Commerce sectors, ensuring 100% on-time releases.",
+        "Introduced AI-driven automation with Microsoft Copilot and GitHub Copilot, reducing manual reporting effort by 25%.",
+        "Enhanced delivery transparency through governance dashboards in Jira and Azure DevOps, improving KPI visibility by 40%."
+      ]
+    },
+    {
+      "company": "ProcessMAP Infotech Pvt. Ltd.",
+      "role": "Technical Project Manager | Scrum Master",
+      "duration": "August 2007 – June 2022",
+      "points": [
+        "Managed enterprise SaaS and EHS delivery for Fortune 500 clients, maintaining a 95% customer satisfaction rate and zero SLA breaches.",
+        "Directed Agile product releases across 40+ cross-functional members spanning Development, QA, Design, and Product teams.",
+        "Spearheaded cloud migration to Azure, cutting infrastructure costs by 40% and achieving 99.9% uptime for global clients.",
+        "Implemented custom Jira workflows and automation to optimize visibility, reducing manual tracking time by 30%."
+      ]
+    }
+  ],
+  "skills": [
+    "Agile Delivery & Coaching",
+    "Project & Program Management (PMP)",
+    "Servant Leadership",
+    "Jira • Confluence • Azure DevOps",
+    "CI/CD • DevOps • Cloud (Azure)",
+    "AI Tools: MS Copilot, GitHub Copilot"
+  ],
+  "certifications": [
+    "images/PMP.png",
+    "images/PSMI.png",
+    "images/PM-AI.png"
+  ],
+  "awards": [
+    "Recognized for Delivery Excellence & Client Value Creation – TCS & ProcessMAP.",
+    "Led multiple Agile transformation initiatives improving team maturity & business agility.",
+    "Improved sprint velocity by 30% through Agile and DevOps enablement.",
+    "Awarded 'Best Technical Project Manager' for outstanding leadership and results."
+  ],
+  "contact": {
+    "location": "Bhubaneswar, India",
+    "email": "sisir.senapati@gmail.com",
+    "phone": "+91 98611 16342",
+    "linkedin": "https://linkedin.com/in/sisir-senapati"
+  }
+}
