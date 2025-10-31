@@ -1,0 +1,67 @@
+/* =======================
+   🤖 AI Assistant Section
+   ======================= */
+.ai-assistant {
+  text-align: center;
+  padding: 60px 10%;
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.ai-assistant h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.ai-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+}
+
+.ai-box textarea {
+  width: 70%;
+  height: 80px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid var(--secondary);
+  resize: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ai-box button {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-box button:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.ai-response {
+  margin-top: 25px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+  max-width: 700px;
+  text-align: left;
+}
+
+[data-theme="dark"] .ai-response {
+  background: #1e293b;
+}
