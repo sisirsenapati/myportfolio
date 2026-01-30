@@ -588,98 +588,141 @@
 
     <!-- Engagement Script -->
     <script>
-            // ✅ Enhanced Visitor Tracking with localStorage + IP API
-    // Note: GitHub Pages is static - cannot write to files. Using localStorage for counting.
-    
-    const VISITS_KEY = 'sisir_portfolio_visits';
-    const LIKES_KEY = 'sisir_portfolio_likes';
-    const VISITOR_LOG_KEY = 'sisir_portfolio_visitor_log';
-    
-    // Get or initialize visit count
-    let visits = parseInt(localStorage.getItem(VISITS_KEY) || '0');
-    visits++;
-    localStorage.setItem(VISITS_KEY, visits.toString());
-    
-    // Get likes count
-    let likes = parseInt(localStorage.getItem(LIKES_KEY) || '0');
-    
-    // Display counts
-    document.getElementById('viewCount').textContent = visits.toLocaleString();
-    document.getElementById('likeCount').textContent = likes.toLocaleString();
-    
-    // Track visitor information using free IP API
-    async function trackVisitor() {
-        try {
-            const response = await fetch('https://ipapi.co/json/');
-            const data = await response.json();
-            
-            const visitorInfo = {
-                timestamp: new Date().toISOString(),
-                ip: data.ip || 'N/A',
-                city: data.city || 'Unknown',
-                region: data.region || 'Unknown',
-                country: data.country_name || 'Unknown',
-                device: navigator.userAgent,
-                visits: visits
-            };
-            
-            // Log to console (for debugging)
-            console.log('Visitor Info:', visitorInfo);
-            
-            // Store in localStorage
-            let visitorLog = JSON.parse(localStorage.getItem(VISITOR_LOG_KEY) || '[]');
-            visitorLog.push(visitorInfo);
-            // Keep only last 50 visits
-            if (visitorLog.length > 50) visitorLog = visitorLog.slice(-50);
-            localStorage.setItem(VISITOR_LOG_KEY, JSON.stringify(visitorLog));
-            
-            console.log('📊 Total Visits:', visits);
-            console.log('📍 Location:', `${data.city}, ${data.region}, ${data.country_name}`);
+// ✅ Enhanced Visitor Tracking with localStorage + IP API + Google Sheets
 
-                    // Send to Google Sheets webhook
-        try {
-            await fetch('https://script.google.com/macros/s/AKfycbvp9_0skYq-CPFSz9Y;9Ee5i7HzgyNtp8OzUDAr1UDxkuQkIWTHvSKYJ1G1Dlbn7sKfhg/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(visitorInfo)
-            });
-            console.log('✅ Data sent to Google Sheets successfully!');
-        } catch (sheetError) {
-            console.log('⚠️ Could not send to Google Sheets:', sheetError);
-        }
-            
-        } catch (error) {
-            console.log('Could not fetch visitor location:', error);
-        }
+const VISITS_KEY = 'sisir_portfolio_visits';
+const LIKES_KEY = 'sisir_portfolio_likes';
+const VISITOR_LOG_KEY = 'sisir_portfolio_visitor_log';
+const SESSION_VISITED_KEY = 'sisir_portfolio_session_visited';
+
+// ✅ FIX #3: Check if already visited in this session (prevents reload increment)
+const hasVisitedThisSession = sessionStorage.getItem(SESSION_VISITED_KEY);
+
+// Get or initialize visit count
+let visits = parseInt(localStorage.getItem(VISITS_KEY) || '0');
+
+// Only increment if NOT visited in this session
+if (!hasVisitedThisSession) {
+  visits++;
+  localStorage.setItem(VISITS_KEY, visits.toString());
+  sessionStorage.setItem(SESSION_VISITED_KEY, 'true');
+}
+
+// Get likes count
+let likes = parseInt(localStorage.getItem(LIKES_KEY) || '0');
+
+// Display counts
+document.getElementById('viewCount').textContent = visits.toLocaleString();
+document.getElementById('likeCount').textContent = likes.toLocaleString();
+
+// ✅ FIX #1 & #2: Track visitor with proper Google Sheets integration
+async function trackVisitor() {
+  try {
+    const response = await fetch('https://ipapi.co/json/');
+    const data = await response.json();
+    
+    const visitorInfo = {
+      timestamp: new Date().toISOString(),
+      ip: data.ip || 'N/A',
+      city: data.city || 'Unknown',
+      region: data.region || 'Unknown',
+      country: data.country_name || 'Unknown',
+      device: navigator.userAgent,
+      visits: visits,
+      action: 'visit'
+    };
+    
+    // Log to console (for debugging)
+    console.log('Visitor Info:', visitorInfo);
+    
+    // Store in localStorage
+    let visitorLog = JSON.parse(localStorage.getItem(VISITOR_LOG_KEY) || '[]');
+    visitorLog.push(visitorInfo);
+    // Keep only last 50 visits
+    if (visitorLog.length > 50) visitorLog = visitorLog.slice(-50);
+    localStorage.setItem(VISITOR_LOG_KEY, JSON.stringify(visitorLog));
+    
+    console.log('📊 Total Visits:', visits);
+    console.log('📍 Location:', `${data.city}, ${data.region}, ${data.country_name}`);
+    
+    // ✅ FIX #1: Send to Google Sheets webhook (REPLACE WITH YOUR ACTUAL URL)
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyp9_0skYq-CPFSz9Yj9Ee5l7HzgyNtp8OzUDAr1UDxkuQkIWTHvSKYJ1G1DIhn7sKfhg/exec';
+    
+    try {
+      await fetch(GOOGLE_SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(visitorInfo)
+      });
+      console.log('✅ Data sent to Google Sheets successfully!');
+    } catch (sheetError) {
+      console.log('⚠️ Could not send to Google Sheets:', sheetError);
     }
     
-    trackVisitor();
+  } catch (error) {
+    console.log('Could not fetch visitor location:', error);
+  }
+}
+
+// Only track if this is a new session visit
+if (!hasVisitedThisSession) {
+  trackVisitor();
+}
+
+// ✅ FIX #4: Like button with Google Sheets integration
+document.getElementById('likeButton').addEventListener('click', async () => {
+  likes++;
+  localStorage.setItem(LIKES_KEY, likes.toString());
+  document.getElementById('likeCount').textContent = likes.toLocaleString();
+  
+  // Visual feedback
+  const btn = document.getElementById('likeButton');
+  btn.textContent = '❤️ Liked! Thank You!';
+  btn.style.background = 'var(--accent)';
+  
+  // ✅ FIX #4: Send like data to Google Sheets
+  const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyp9_0skYq-CPFSz9Yj9Ee5l7HzgyNtp8OzUDAr1UDxkuQkIWTHvSKYJ1G1DIhn7sKfhg/exec';
+  
+  try {
+    const likeData = {
+      timestamp: new Date().toISOString(),
+      action: 'like',
+      totalLikes: likes
+    };
     
-    // Like button functionality
-    document.getElementById('likeButton').addEventListener('click', () => {
-        likes++;
-        localStorage.setItem(LIKES_KEY, likes.toString());
-        document.getElementById('likeCount').textContent = likes.toLocaleString();
-        
-        // Visual feedback
-        const btn = document.getElementById('likeButton');
-        btn.textContent = '❤️ Liked! Thank You!';
-        btn.style.background = 'var(--accent)';
-        setTimeout(() => {
-            btn.textContent = '❤️ Like This Portfolio';
-            btn.style.background = 'var(--secondary)';
-        }, 2000);
+    await fetch(GOOGLE_SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(likeData)
     });
-    
-    // Note: To log visitor data to visitors.txt file, you would need:
-    // 1. A backend API endpoint (not possible with GitHub Pages alone)
-    // 2. GitHub Actions workflow to periodically update visitors.txt
-    // 3. A third-party service like FormSubmit, Google Sheets API, or Firebase
-    // For now, visitor data is logged to browser console and localStorage
-     </script>
+    console.log('✅ Like sent to Google Sheets!');
+  } catch (error) {
+    console.log('⚠️ Could not send like to Google Sheets:', error);
+  }
+  
+  setTimeout(() => {
+    btn.textContent = '❤️ Like This Portfolio';
+    btn.style.background = 'var(--secondary)';
+  }, 2000);
+});
+
+// ✅ FIX #2: Function to view visitor logs (call from browser console)
+window.viewVisitorLogs = function() {
+  const logs = JSON.parse(localStorage.getItem(VISITOR_LOG_KEY) || '[]');
+  console.table(logs);
+  return logs;
+};
+
+console.log('💡 Tip: Type viewVisitorLogs() in console to see all visitor data');
+
+</script>
+
     <footer>
         <p>© 2025 Sisir Senapati — Technical Project Manager | Senior Scrum Master | Agile Coach | Delivery Leader (SAFe RTE)</p>
         <p>Built with ❤️ using HTML & CSS | Hosted on GitHub Pages</p>
